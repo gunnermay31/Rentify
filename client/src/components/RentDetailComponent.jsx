@@ -51,13 +51,13 @@ const RentDetailComponent = ({
 
             <div>
               <p className="font-semibold">
-                NPR. <span className="">{format(realEstate?.price)}</span> /
+                INR. <span className="">{format(realEstate?.price)}</span> /
                 month
               </p>
               <p className="">
                 <LocationOnOutlinedIcon color="secondary" />{" "}
                 {realEstate?.address?.location},{" "}
-                {realEstate?.address?.streetName}
+                {realEstate?.address?.streetName}, {realEstate?.address?.City}
               </p>
             </div>
             <div className="mt-2">

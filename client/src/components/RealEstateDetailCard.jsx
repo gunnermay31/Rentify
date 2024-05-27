@@ -29,7 +29,7 @@ const RealEstateDetailCard = ({
             <h3 className="font-semibold">{title}</h3>
             <p className="-ml-1 text-base tracking-tight">
               <LocationOnOutlinedIcon sx={{ color: "#019149" }} />
-              {address?.location}, {address?.streetName} ,Kathmandu
+              {address?.location}, {address?.streetName}, {address?.city}
             </p>
             <div className="">
               <p className="font-robotoNormal text-xs font-semibold tracking-tight">
@@ -46,7 +46,7 @@ const RealEstateDetailCard = ({
                 RENT per month
               </p>
               <span className="font-semibold text-lg text-primaryDark">
-                NPR. {format(price)}
+                INR. {format(price)}
               </span>
               <div>
                 <p className="font-roboto text-gray-500">{category}</p>

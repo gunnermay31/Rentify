@@ -6,9 +6,9 @@ const Logo = () => {
   const { userType } = useSelector((store) => store.auth);
   return (
     <Link to={`/${userType ? userType : ""}`}>
-      <img
-        className="w-16 h-10 md:w-20 md:h-12"
-      />
+      <div
+        className="w-10 h-5 md:w-10 md:h-12"
+      /><h5 className="font-display">Rentify</h5>
     </Link>
   );
 };

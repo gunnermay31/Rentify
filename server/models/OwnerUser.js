@@ -41,6 +41,14 @@ const OwnerUserSchema = new mongoose.Schema(
     dateOfBirth: {
       type: String,
       required: [true, "Please provide a date of birth"],
+      validate: {
+        validator: function (value) {
+          const dob = moment(value, "YYYY-MM-DD");
+          const age = moment().diff(dob, "years");
+          return age >= 16 && age <= 100;
+        },
+        message: "Age must be between 16 and 100 years",
+      },
     },
     gender: {
       type: String,

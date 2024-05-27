@@ -17,12 +17,14 @@ const UpdatePropertyForm = ({
   facing,
   address,
   isProcessing,
+  onSubmit,
 }) => {
   const initialFormValues = {
     price,
     description,
     location: address?.location,
     streetName: address?.streetName,
+    city: address?.city, // Include city in the initial values
     category,
     area,
     floors,
@@ -37,8 +39,15 @@ const UpdatePropertyForm = ({
     [values]
   );
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit) {
+      onSubmit(values);
+    }
+  };
+
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-wrap flex-col gap-2 ml-5">
         <div className="flex flex-col gap-4 my-2">
           <h5 className="mb-1">
@@ -74,7 +83,7 @@ const UpdatePropertyForm = ({
               ),
             }}
           />
-          {/* Other text fields */}
+          {/* Add other text fields here as needed */}
         </div>
         <div className="flex flex-col gap-4 my-2">
           <h5 className="mb-1">
@@ -132,7 +141,7 @@ const UpdatePropertyForm = ({
           )}
         </Button>
       </div>
-    </>
+    </form>
   );
 };
 

@@ -1,7 +1,3 @@
-Live Site - [Property Plus](https://property-plus.onrender.com/)
-
-## Features
-
 - Post a property for rent
 - Search and filter properties
 - View property details
@@ -12,10 +8,6 @@ Live Site - [Property Plus](https://property-plus.onrender.com/)
 - Manage tenants
 - Register Rent Payment
 
-## Configuration and Installation Instructions
-
-### Prerequisites
-
 - [Node.js](https://nodejs.org/en/download/)
 - [React.js](https://facebook.github.io/react/)
 - [npm](https://www.npmjs.com/)
@@ -23,27 +15,21 @@ Live Site - [Property Plus](https://property-plus.onrender.com/)
 - [Cloudinary](https://cloudinary.com/)
 - [Ethereal Email](https://ethereal.email/)
 
-1. Clone the repository:
-
-```bash
-$ git clone https://github.com/SonamRinzinGurung/Real-Estate-Rental-and-Tenant-Management-System.git
-```
-
-2. Install the required packages for the backend:
+ Install the required packages for the backend:
 
 ```bash
 $ cd server
 $ npm install
 ```
 
-3. Open a new terminal session and install the required packages for the frontend:
+Open a new terminal session and install the required packages for the frontend:
 
 ```bash
 $ cd client
 $ npm install
 ```
 
-4. Configure the environment variables inside the server folder:
+ Configure the environment variables inside the server folder:
 
 ```bash
 
@@ -68,8 +54,7 @@ EMAIL_PORT=587
 EMAIL_USER= <your_gmail_address>
 EMAIL_PASS= <your_gmail_pass> or <your_gmail_app_password>
 ```
-
-5. Configure the environment variables inside the client folder:
+ Configure the environment variables inside the client folder:
 
 ```bash
 
@@ -80,7 +65,7 @@ VITE_APP_API_URL=http://localhost:5000/api
 VITE_APP_API_HOST=http://localhost:5000
 ```
 
-6. Run the application:
+ Run the application:
 
 ```bash
 $ cd server

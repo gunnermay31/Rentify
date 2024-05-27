@@ -39,6 +39,10 @@ const RealEstateSchema = new mongoose.Schema(
           "Please provide a street name or landmark for the property",
         ],
       },
+      city: {
+        type: String,
+        required: [true, "Please provide the city of the property"],
+      },
     },
     description: {
       type: String,
@@ -58,7 +62,6 @@ const RealEstateSchema = new mongoose.Schema(
       min: [1, "Number of floors cannot be less than 1"],
       max: [100, "Number of floors cannot be more than 100"],
     },
-
     facing: {
       type: String,
       required: [true, "Please provide the facing direction of the property"],
@@ -76,7 +79,6 @@ const RealEstateSchema = new mongoose.Schema(
         message: "{VALUE} is not in the facing list",
       },
     },
-
     category: {
       type: String,
       required: [true, "Please provide a category for the property"],
@@ -85,14 +87,11 @@ const RealEstateSchema = new mongoose.Schema(
         message: "{VALUE} is not in the category list",
       },
     },
-
     status: {
       type: Boolean,
       default: true,
     },
-
     realEstateImages: [Object],
-
     propertyOwner: {
       type: mongoose.Types.ObjectId,
       ref: "OwnerUser",

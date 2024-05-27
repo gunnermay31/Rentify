@@ -134,9 +134,9 @@ const PrivacyPoliciesPage = () => {
           </div>
           <hr className="my-6 border-gray-700 sm:mx-auto  lg:my-8" />
           <span className="block text-sm  sm:text-center ">
-            2023 |{" "}
+            2024 |{" "}
             <Link to="/" className="hover:underline">
-              Property Plus
+              Rentify
             </Link>
           </span>
         </footer>

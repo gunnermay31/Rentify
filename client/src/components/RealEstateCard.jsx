@@ -57,11 +57,11 @@ const RealEstateCard = ({
               </h4>
               <p className="text-sm text-gray-400">{category}</p>
               <p className="font-semibold">
-                NPR. <span className="">{format(price)}</span> / month
+                INR. <span className="">{format(price)}</span> / month
               </p>
               <p className="text-base">
                 <LocationOnOutlinedIcon color="secondary" /> {address?.location}
-                , {address?.streetName}
+                , {address?.streetName} , {address?.City}
               </p>
             </CardContent>
           </CardActionArea>

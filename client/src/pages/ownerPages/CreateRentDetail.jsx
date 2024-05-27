@@ -29,7 +29,7 @@ const CreateRentDetail = () => {
     dispatch(getOwnerAllContracts());
   }, [dispatch]);
 
-  const [contractForm, setContractFrom] = useState({
+  const [contractForm, setContractForm] = useState({
     tenant: "",
     realEstate: "",
     rentAmount: "",
@@ -41,41 +41,29 @@ const CreateRentDetail = () => {
   // handle change in the form
   const handleChange = useCallback(
     (e) => {
-      setContractFrom({ ...contractForm, [e.target.name]: e.target.value });
+      setContractForm({ ...contractForm, [e.target.name]: e.target.value });
     },
     [contractForm]
   );
 
   // set rent amount to the price of the property when the property is selected
   useEffect(() => {
-    if (contractForm.realEstate) {
-      setContractFrom({
-        ...contractForm,
-        tenant: allContracts?.find(
-          (contract) => contract.realEstate._id === contractForm.realEstate
-        ).tenant._id,
-        rentAmount: allContracts?.find(
-          (contract) => contract.realEstate._id === contractForm.realEstate
-        ).rentAmount,
-        startDate: allContracts?.find(
-          (contract) => contract.realEstate._id === contractForm.realEstate
-        ).startDate,
-        paymentPlan: allContracts?.find(
-          (contract) => contract.realEstate._id === contractForm.realEstate
-        ).paymentPlan,
-        tenantName: allContracts
-          ?.find(
-            (contract) => contract.realEstate._id === contractForm.realEstate
-          )
-          .tenant.firstName.concat(
-            " ",
-            allContracts?.find(
-              (contract) => contract.realEstate._id === contractForm.realEstate
-            ).tenant.lastName
-          ),
-      });
+    if (contractForm.realEstate && allContracts) {
+      const selectedContract = allContracts.find(
+        (contract) => contract.realEstate._id === contractForm.realEstate
+      );
+      if (selectedContract) {
+        setContractForm({
+          ...contractForm,
+          tenant: selectedContract.tenant._id,
+          rentAmount: selectedContract.rentAmount,
+          startDate: selectedContract.startDate,
+          paymentPlan: selectedContract.paymentPlan,
+          tenantName: `${selectedContract.tenant.firstName} ${selectedContract.tenant.lastName}`,
+        });
+      }
     }
-  }, [contractForm.realEstate, allContracts, setContractFrom, contractForm]);
+  }, [contractForm.realEstate, allContracts]);
 
   // Redirect to all rent details page
   useEffect(() => {
@@ -97,7 +85,7 @@ const CreateRentDetail = () => {
     [dispatch]
   );
 
-  //modal
+  // modal
   const [open, setOpen] = useState(false);
   const handleModalOpen = useCallback(() => setOpen(true), []);
   const handleModalClose = useCallback(() => setOpen(false), []);
@@ -175,6 +163,8 @@ const CreateRentDetail = () => {
                     value={contractForm.tenantName}
                     color="tertiary"
                     sx={{ width: "300px" }}
+                    name="tenantName"
+                    disabled
                   />
 
                   <TextField
@@ -183,6 +173,7 @@ const CreateRentDetail = () => {
                     name="startDate"
                     color="tertiary"
                     sx={{ width: "300px" }}
+                    disabled
                   />
 
                   <TextField
@@ -191,6 +182,7 @@ const CreateRentDetail = () => {
                     name="paymentPlan"
                     color="tertiary"
                     sx={{ width: "300px" }}
+                    disabled
                   />
 
                   <TextField
@@ -199,6 +191,7 @@ const CreateRentDetail = () => {
                     name="rentAmount"
                     color="tertiary"
                     sx={{ width: "300px" }}
+                    disabled
                   />
                 </div>
               </div>
@@ -260,7 +253,7 @@ const CreateRentDetail = () => {
       </div>
 
       <div className="mt-10 mb-6 md:mb-0 mx-14 self-center">
-        <img src={createRentImage} alt="" />
+        <img src={createRentImage} alt="Create Rent" />
       </div>
 
       <AlertToast

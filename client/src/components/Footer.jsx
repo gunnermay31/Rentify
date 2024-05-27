@@ -9,8 +9,6 @@ const Footer = () => {
     <footer className="p-4 shadow-sm md:px-6 md:py-8 bg-slate-300 mt-auto">
       <div className="sm:flex sm:items-center sm:justify-between">
         <div className="flex items-center mb-4 sm:mb-0">
-          <Logo />
-
           <div className="flex flex-col ml-3 justify-center">
             <h1 className="font-display text-xl md:text-2xl">Rentify</h1>
             <p className="text-xs md:text-sm">

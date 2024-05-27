@@ -53,7 +53,7 @@ const PersonalRealEstateDetail = () => {
     }
   }, [postSuccess, navigate, slug]);
 
-  //close the alert toast
+  // Close the alert toast
   const handleAlertClose = useCallback(
     (event, reason) => {
       if (reason === "clickaway") {
@@ -64,7 +64,7 @@ const PersonalRealEstateDetail = () => {
     [dispatch]
   );
 
-  //handel modal open and close state
+  // Handle modal open and close state
   const [open, setOpen] = useState(false);
   const handleModalOpen = useCallback(() => setOpen(true), []);
   const handleModalClose = useCallback(() => setOpen(false), []);
@@ -99,7 +99,8 @@ const PersonalRealEstateDetail = () => {
                 <p className="-ml-1 text-base tracking-tight">
                   <LocationOnOutlinedIcon sx={{ color: "#019149" }} />
                   {realEstate?.address?.location},{" "}
-                  {realEstate?.address?.streetName} ,Kathmandu
+                  {realEstate?.address?.streetName},{" "}
+                  {realEstate?.address?.city}
                 </p>
                 <div className="">
                   <p className="font-robotoNormal text-xs font-semibold tracking-tight">
@@ -116,7 +117,7 @@ const PersonalRealEstateDetail = () => {
                     RENT per month
                   </p>
                   <span className="font-semibold text-lg text-primaryDark">
-                    NPR. {format(realEstate?.price)}
+                    INR. {format(realEstate?.price)}
                   </span>
                 </div>
               </div>
